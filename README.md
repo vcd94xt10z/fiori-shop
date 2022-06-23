@@ -1,34 +1,21 @@
-## Application Details
-|               |
-| ------------- |
-|**Generation Date and Time**<br>Thu Jun 23 2022 10:43:18 GMT-0300 (Horário Padrão de Brasília)|
-|**App Generator**<br>@sap/generator-fiori-freestyle|
-|**App Generator Version**<br>1.5.1|
-|**Generation Platform**<br>Visual Studio Code|
-|**Floorplan Used**<br>simple|
-|**Service Type**<br>None|
-|**Service URL**<br>N/A
-|**Module Name**<br>fiori-shop|
-|**Application Title**<br>Loja Virtual Fiori|
-|**Namespace**<br>zapp|
-|**UI5 Theme**<br>sap_fiori_3|
-|**UI5 Version**<br>1.71.40|
-|**Enable Code Assist Libraries**<br>False|
-|**Add Eslint configuration**<br>True, see https://www.npmjs.com/package/eslint-plugin-fiori-custom for the eslint rules.|
-|**Enable Telemetry**<br>True|
+## Loja Virtual Fiori
 
-## fiori-shop
+Este é um projeto apenas para praticar, não necessariamente usar como uma loja virtual da internet, nem para ser utilizado em telas pequenas
 
-Loja Virtual Fiori
+Framework: SAPUI5  
+Versão: 1.71.40  
+IDE: VSCode  
 
-### Starting the generated app
+[Detalhes Técnicos do App](app.md)
 
--   This app has been generated using the SAP Fiori tools - App Generator, as part of the SAP Fiori tools suite.  In order to launch the generated app, simply run the following from the generated app root folder:
+### Demo online
+[MockServer](https://fiori-shop.herokuapp.com/test/mockServer.html)  
+[Testes Unitários](https://fiori-shop.herokuapp.com/test/unit/unitTests.qunit.html)  
+[Teste Integrados](https://fiori-shop.herokuapp.com/test/integration/opaTests.qunit.html)  
 
-```
-    npm start
-```
+### Funcionalidades
+- Projeto Básico :heavy_check_mark:
+- Home Page
+- ProductDetail
 
-#### Pre-requisites:
-
-1. Active NodeJS LTS (Long Term Support) version and associated supported NPM version.  (See https://nodejs.org)
+Caso for subir o app em algum servidor web, não esqueça de deixar o diretório webapp como document root

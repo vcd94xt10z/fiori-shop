@@ -9,7 +9,7 @@
     <Shell id="shell">
         <App id="app">
             <pages>
-                <Page id="page" title="{i18n>title}">
+                <Page id="page" title="{i18n>title}" enableScrolling="false">
                     
                     <mvc:XMLView viewName="zapp.fiorishop.view.Header"/>
 

@@ -1,10 +1,11 @@
 sap.ui.define([
-    "./BaseController"
+    "./BaseController",
+    "sap/m/MessageToast"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (BaseController) {
+    function (BaseController,MessageToast) {
         "use strict";
 
         return BaseController.extend("zapp.fiorishop.controller.ProductDetail", {
@@ -15,7 +16,7 @@ sap.ui.define([
 
             _onRouteMatched: function(oEvent){
                 var oArgs = oEvent.getParameter("arguments");
-                alert(oArgs.rewrite);
+                MessageToast.show(oArgs.rewrite);
             }
         });
     });

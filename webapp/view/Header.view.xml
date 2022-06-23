@@ -1,7 +1,50 @@
 <mvc:View
+    controllerName="zapp.fiorishop.controller.Home"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
->
-    <Text text="Header"/>
+    xmlns:core="sap.ui.core"
+>   
+    <FlexBox alignContent="Center" alignItems="Center">
+        <items>
+            <Image src="/img/shop-logo.png" class="sapUiSmallMarginTop">
+                <layoutData>
+				    <FlexItemData growFactor="1" />
+				</layoutData>
+            </Image>
+        
+            <SearchField width="100%" class="mySearchField">
+                <layoutData>
+				    <FlexItemData growFactor="4" />
+				</layoutData>
+            </SearchField>
+        
+            
+            <VBox class="sapUiMediumMargin">
+                <Text text="Olá Visitante"/>
+                <Link text="Efetuar Login" press="onGoToLoginForm"/>
+                <Link text="Cadastre-se" press="onGoToRegisterForm"/>
+                <layoutData>
+                    <FlexItemData growFactor="1" />
+                </layoutData>
+            </VBox>
+            <VBox>
+                
+                <core:Icon
+                    id="CarrinhoButton"
+                    src="sap-icon://cart"
+                    class="cart-icon"
+                    color=""
+                    press="onGoToCart">
+                </core:Icon>
+                <Text text="(0)" class="sapUiSmallMargin"/>
+
+                <layoutData>
+                    <FlexItemData growFactor="1" />
+                </layoutData>
+                
+            </VBox>
+        </items>
+    </FlexBox>
+
 </mvc:View>

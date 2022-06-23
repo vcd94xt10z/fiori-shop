@@ -103,9 +103,30 @@
         },
         {
           "name": "RouteProductDetail",
-          "pattern": "{rewrite}",
+          "pattern": "p/{rewrite}",
           "target": [
             "TargetProductDetail"
+          ]
+        },
+        {
+          "name": "RouteCart",
+          "pattern": "cart",
+          "target": [
+            "TargetCart"
+          ]
+        },
+        {
+          "name": "RouteLoginForm",
+          "pattern": "login",
+          "target": [
+            "TargetLoginForm"
+          ]
+        },
+        {
+          "name": "RouteRegisterForm",
+          "pattern": "register",
+          "target": [
+            "TargetRegisterForm"
           ]
         }
       ],
@@ -123,6 +144,27 @@
           "clearControlAggregation": false,
           "viewId": "productDetailView",
           "viewName": "ProductDetail"
+        },
+        "TargetCart": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "cartView",
+          "viewName": "Cart"
+        },
+        "TargetLoginForm": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "loginFormView",
+          "viewName": "LoginForm"
+        },
+        "TargetRegisterForm": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "registerFormView",
+          "viewName": "RegisterForm"
         }
       }
     },

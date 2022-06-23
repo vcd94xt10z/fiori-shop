@@ -13,6 +13,21 @@ sap.ui.define([
             onInit: function () {
             },
 
+            onGoToLoginForm: function(){
+                var oRouter = this.getRouter();
+                oRouter.navTo("RouteLoginForm");
+            },
+
+            onGoToRegisterForm: function(){
+                var oRouter = this.getRouter();
+                oRouter.navTo("RouteRegisterForm");
+            },
+
+            onGoToCart: function(oEvent){
+                var oRouter = this.getRouter();
+                oRouter.navTo("RouteCart");
+            },
+
             onGoToProduct: function(oEvent){
                 var oSource = oEvent.getSource();
                 var sRewrite = oSource.data("rewrite");

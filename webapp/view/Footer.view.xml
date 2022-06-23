@@ -3,5 +3,16 @@
     displayBlock="true"
     xmlns="sap.m"
 >
-    <Text text="Footer"/>
+    <Toolbar width="100%" height="1px" class="sapUiSmallMarginTop sapUiSmallMarginBottom"/>
+    
+    <FlexBox direction="Column" class="sapUiLargeMarginBottom">
+        <Text class="sapUiTinyMargin" text="Em caso de divergência de preços e estoques no site, o valor e disponibilidade válidos são os da Cesta de Compras. Preços e condições de pagamento exclusivas para compras via internet e televendas.
+        Ofertas válidas até o término de nossos estoques. 
+        Os preços apresentados no site prevalecem sobre outros anunciados em qualquer outro meio de comunicação ou sites de buscas. Código de Defesa do Consumidor: Lei nº 8.078.
+        Vendas sujeitas à confirmação de dados e análises de crédito e risco."/>
+        
+        <Text class="sapUiTinyMargin" text="Razão Social: Fiori Shop - CNPJ: 01.234.567/0001-01 - Endereço: R. dos Dumps, 999 - Fundos - Uallldorff - CEP: 80000-000 - Uallldorf / DE"/>
+
+        <Text class="sapUiTinyMargin" text="FioriShop. 2022 - Nenhum direito reservado"/>
+    </FlexBox>
 </mvc:View>

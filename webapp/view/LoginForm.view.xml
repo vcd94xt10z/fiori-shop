@@ -1,0 +1,10 @@
+<mvc:View
+    controllerName="zapp.fiorishop.controller.LoginForm"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page title="Login Form" showNavButton="true" navButtonPress="onPageBack">
+        <Text text="Estou no Formulário de Login"/>
+    </Page>
+</mvc:View>

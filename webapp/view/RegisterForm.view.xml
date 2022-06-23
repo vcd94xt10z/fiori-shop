@@ -1,0 +1,10 @@
+<mvc:View
+    controllerName="zapp.fiorishop.controller.RegisterForm"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+    <Page title="Register Form" showNavButton="true" navButtonPress="onPageBack">
+        <Text text="Estou no Formulário de Registro"/>
+    </Page>
+</mvc:View>

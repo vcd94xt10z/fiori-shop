@@ -1,0 +1,66 @@
+<mvc:View
+    controllerName="zapp.fiorishop.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
+>
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    
+                    <mvc:XMLView viewName="zapp.fiorishop.view.Header"/>
+
+                    <!-- CAROUSEL -->
+                    <Carousel height="320px" showPageIndicator="false">
+                        <Image src="/img/banner/b1.jpg"/>
+                        <Image src="/img/banner/b2.jpg"/>
+                        <Image src="/img/banner/b3.jpg"/>
+                    </Carousel>
+
+                    <!-- LISTA DE PRODUTOS -->
+                    <f:Card class="sapUiTinyMargin" width="220px">
+                        <f:header></f:header>
+                        <f:content>
+                            <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+                                <Image src="/img/product/1/200/1.jpg" press="onGoToProduct" app:rewrite="teste-1"/>
+                                <Title text="Gabinete Gamer Mid Tower Scar RGB AEROCOOL"/>
+                                <Text text="R$ 680,15"/>
+                                <Button text="Comprar"/>
+                            </VBox>
+                        </f:content>
+                    </f:Card>
+
+                    <f:Card class="sapUiTinyMargin" width="220px">
+                        <f:header></f:header>
+                        <f:content>
+                            <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom" >
+                                <Image src="/img/product/1/200/1.jpg" press="onGoToProduct" app:rewrite="teste-2"/>
+                                <Title text="Gabinete Gamer Mid Tower Scar RGB AEROCOOL"/>
+                                <Text text="R$ 680,15"/>
+                                <Button text="Comprar"/>
+                            </VBox>
+                        </f:content>
+                    </f:Card>
+
+                    <f:Card class="sapUiTinyMargin" width="220px">
+                        <f:header></f:header>
+                        <f:content>
+                            <VBox class="sapUiSmallMarginBegin sapUiSmallMarginTopBottom">
+                                <Image src="/img/product/1/200/1.jpg" press="onGoToProduct" app:rewrite="teste-3"/>
+                                <Title text="Gabinete Gamer Mid Tower Scar RGB AEROCOOL"/>
+                                <Text text="R$ 680,15"/>
+                                <Button text="Comprar"/>
+                            </VBox>
+                        </f:content>
+                    </f:Card>
+
+                    <mvc:XMLView viewName="zapp.fiorishop.view.Footer"/>
+
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+</mvc:View>

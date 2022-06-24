@@ -25,12 +25,12 @@
                     <l:BlockLayout background="Dashboard">
 					<l:BlockLayoutRow
 						id="viewedRow"
-						content="{/productList}">
+						content="{/productSet}">
 						<l:content>
 							<l:BlockLayoutCell class="sapUiNoContentPadding">
                                 
                                 <VBox class="sapUiTinyMargin">
-                                    <Image src="/img/product/{Productid}/1.jpg" 
+                                    <Image src="/img/product/{ProductID}/1.jpg" 
                                         width="100%" 
                                         press="onGoToProduct" 
                                         app:rewrite="{Rewrite}"

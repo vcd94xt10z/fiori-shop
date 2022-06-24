@@ -12,9 +12,13 @@
     "resources": "resources.json",
     "dataSources": {
       "mainService": {
-        "uri": "./model/localdata.json",
-        "type": "JSON",
-        "settings": {}
+        "uri": "/sap/opu/odata/SAP/ZSHOP_SRV/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "localUri": "localService/metadata.xml",
+          "odataVersion": "2.0"
+        }
       }
     }
   },

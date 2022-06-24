@@ -1,0 +1,71 @@
+{
+    "productList": 
+	[
+	{
+        "Productid" : "1",
+		"Name" : "Gabinete Gamer Corsair Obsidian Series 1000D",
+		"Description": "A série CORSAIR Obsidian 1000D é o melhor case para PC super-towe com design icônico de vidro temperado, iluminação inteligente e controle de ventilador e a capacidade de abrigar dois sistemas simultaneamente para as construções mais épicas",
+		"Price" : 4439.90,
+		"Stock" : 3252.000,
+		"PhotoCount" : 3,
+		"Weight" : 2.255,
+		"Categoryid" : "1",
+		"Brand" : "CORSAIR"
+	},
+	{
+		"Productid" : "2",
+		"Name" : "Cadeira Gamer Corsair T3 Rush",
+		"Description": "A cadeira gamer CORSAIR T3 RUSH na cor Cinza e Carvão combina um design inspirado pelas corridas e conforto ergonômico com um exterior suave em tecido respirável, almofada acolchoada para o pescoço e suporte para lombar em viscoelástico.",
+		"Price" : 2199.90,
+		"Stock" : 2854.000,
+		"PhotoCount" : 6,
+		"Weight" : 30.278,
+		"Categoryid" : "2",
+		"Brand" : "CORSAIR"
+	},
+	{
+		"Productid" : "3",
+		"Name" : "Memória Corsair Vengeance, 32GB (2x16GB), 5600MHz, DDR5",
+		"Description": "Vá além dos limites do seu sistema com a memória DDR5, aproveitando frequências de 5200MHz, capacidade de 32GB (2x16GB) e melhor desempenho do que as gerações anteriores.",
+		"Price" : 2429.90,
+		"Stock" : 5038.000,
+		"PhotoCount" : 7,
+		"Weight" : 0.288,
+		"Categoryid1" : "3",
+		"Brand" : "CORSAIR"
+	},
+	{
+		"Productid" : "4",
+		"Name" : "Headset Gamer Corsair Void Elite Wireless",
+		"Description": "Mergulhe na ação com o CORSAIR VOID RGB ELITE sem fio, que apresenta drivers de áudio em neodímio de 50mm e ajuste personalizado, auriculares confortáveis de malha de microfibra e viscoelástico e uma conexão sem fio de 2,4GHz. Compatível com iCUE da CORSAIR.",
+		"Price" : 629.90,
+		"Stock" : 5038.000,
+		"PhotoCount" : 7,
+		"Weight" : 0.288,
+		"Categoryid1" : "4",
+		"Brand" : "CORSAIR"
+	},
+	{
+		"Productid" : "5",
+		"Name" : "Fonte Corsair HX1200, 1200W, 80 Plus Platinum",
+		"Description": "As fontes de alimentação da série HX da Corsair oferecem regulação de tensão extremamente rígida, operação praticamente silenciosa e um conjunto de cabos totalmente modular.",
+		"Price" : 1649.90,
+		"Stock" : 5038.000,
+		"PhotoCount" : 7,
+		"Weight" : 0.288,
+		"Categoryid1" : "4",
+		"Brand" : "CORSAIR"
+	},
+	{
+		"Productid" : "6",
+		"Name" : "Water Cooler H80i V2 Hydro",
+		"Description": "O sistema flexível e poderoso de resfriamento líquido de 120 mm para CPU de PCs de alto desempenho.O Hydro Series H80i v2 é um cooler líquido para CPU completo de alto desempenho que funciona com montagens de radiador de 120 mm.;O radiador extra grosso de 49 mm x 120 mm e ventoinhas duplas PWM 120L fornecem a dissipação de calor excelente que você precisa para CPUs de alto desempenho",
+		"Price" : 1112.22,
+		"Stock" : 5038.000,
+		"PhotoCount" : 7,
+		"Weight" : 0.288,
+		"Categoryid1" : "4",
+		"Brand" : "CORSAIR"
+	}
+	]
+}

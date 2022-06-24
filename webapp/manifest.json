@@ -12,13 +12,9 @@
     "resources": "resources.json",
     "dataSources": {
       "mainService": {
-        "uri": "/sap/opu/odata/",
-        "type": "OData",
-        "settings": {
-          "annotations": [],
-          "localUri": "localService/metadata.xml",
-          "odataVersion": "2.0"
-        }
+        "uri": "./model/localdata.json",
+        "type": "JSON",
+        "settings": {}
       }
     }
   },

@@ -16,7 +16,15 @@ sap.ui.define([
 
             _onRouteMatched: function(oEvent){
                 var oArgs = oEvent.getParameter("arguments");
-                MessageToast.show(oArgs.rewrite);
+                var sRewrite = oArgs.rewrite;
+
+                var oModel = this.getOwnerComponent().getModel();
+                var oData = oModel.getData();
+                var oProd = oData.productList[0];
+
+                var oViewModel = new sap.ui.model.json.JSONModel();
+                oViewModel.setData(oProd);
+                this.getView().setModel(oViewModel,"product");
             }
         });
     });

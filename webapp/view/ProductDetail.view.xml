@@ -3,8 +3,66 @@
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 >
-    <Page title="ProductDetail" showNavButton="true" navButtonPress="onPageBack">
-        <Text text="Estou no productDetail"/>
+    <Page title="{i18n>title}" showNavButton="true" navButtonPress="onPageBack">
+
+        <mvc:XMLView viewName="zapp.fiorishop.view.Header"/>
+        
+        <l:VerticalLayout width="100%" class="sapUiContentPadding">
+            <l:content>
+                <Breadcrumbs currentLocationText="Cadeira" separatorStyle="BackSlash">
+                    <Link press="onPress" text="Home"/>
+                    <Link press="onPress" text="Games"/>
+                    <Link press="onPress" text="Acessórios"/>
+                </Breadcrumbs>
+            </l:content>
+        </l:VerticalLayout>
+
+        <l:BlockLayout id="BlockLayout" background="Dashboard">
+            <l:BlockLayoutRow accentCells="Accent1">
+                <l:BlockLayoutCell
+                        id="Accent1"
+                        title="">
+                    <Image id="productImage" src="/img/product/{product>/Productid}/1.jpg" width="100%" press="onOpenImage"/>
+                </l:BlockLayoutCell>
+                <l:BlockLayoutCell>
+                    <l:VerticalLayout>
+                        <ObjectHeader title="{product>/Name}" titleLevel="H2">
+                            <attributes>
+                                <ObjectAttribute title="Marca" text="{product>/Brand}"/>
+                            </attributes>
+                            <statuses>
+                                <ObjectStatus text="Disponível" state="Success"/>
+                            </statuses>
+                        </ObjectHeader>
+
+                        <Title text="R$ {
+                                        path : 'product>/Price',
+                                        formatter : '.formatter.price'
+                                    }" titleStyle="H1" textAlign="Center" width="100%"/>
+
+                        <Button type="Accept"
+                                text="Comprar"
+                                press="onComprar"
+                                width="100%"
+                                class="sapUiSmallMargin"
+                                app:productid="{product>/Productid}"
+                                ariaDescribedBy="acceptButtonDescription genericButtonDescription">
+                            <layoutData>
+                                <FlexItemData growFactor="1" />
+                            </layoutData>
+                        </Button>
+
+                    </l:VerticalLayout>
+                </l:BlockLayoutCell>
+            </l:BlockLayoutRow>
+        </l:BlockLayout>
+
+        <Text text="{product>/Description}"/>
+
+        <mvc:XMLView viewName="zapp.fiorishop.view.Footer"/>
     </Page>
 </mvc:View>

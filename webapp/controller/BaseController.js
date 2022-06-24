@@ -1,15 +1,18 @@
 sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/core/UIComponent",
-    "sap/ui/core/routing/History"
+    "sap/ui/core/routing/History",
+    "../model/formatter",
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller,UIComponent,History) {
+    function (Controller,UIComponent,History,formatter) {
         "use strict";
 
         return Controller.extend("zapp.fiorishop.controller.BaseController", {
+            formatter: formatter,
+
             onInit: function () {
             },
 

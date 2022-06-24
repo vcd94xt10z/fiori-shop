@@ -47,4 +47,6 @@
         </items>
     </FlexBox>
 
+    <Toolbar width="100%" height="1px" class="sapUiTinyMarginTop"/>
+
 </mvc:View>

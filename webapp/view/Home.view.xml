@@ -30,9 +30,13 @@
 							<l:BlockLayoutCell class="sapUiNoContentPadding">
                                 
                                 <VBox class="sapUiTinyMargin">
-                                    <Image src="/img/product/{Productid}/1.jpg" width="100%" press="onGoToProduct" app:rewrite="{Name}"/>
+                                    <Image src="/img/product/{Productid}/1.jpg" 
+                                        width="100%" 
+                                        press="onGoToProduct" 
+                                        app:rewrite="{path: 'Name', formatter: '.formatter.rewrite'}"
+                                        />
                                     <Title text="{Name}" width="100%"/>
-                                    <Text text="R$ {Price}"/>
+                                    <Text text="R$ {path: 'Price', formatter: '.formatter.price'}"/>
                                     <Button text="Comprar"/>
                                 </VBox>
 

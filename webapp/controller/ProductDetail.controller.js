@@ -17,13 +17,26 @@ sap.ui.define([
             _onRouteMatched: function(oEvent){
                 var oArgs = oEvent.getParameter("arguments");
                 var sRewrite = oArgs.rewrite;
-
                 var oModel = this.getOwnerComponent().getModel();
                 var oData = oModel.getData();
-                var oProd = oData.productList[0];
+
+                var oProdFound = null;
+                for(var i in oData.productList){
+                    var oProd = oData.productList[i];
+                    if(oProd.Rewrite == sRewrite){
+                        oProdFound = oProd;
+                        break;
+                    }
+                }
+
+                if(oProdFound == null){
+                    var oRouter = this.getRouter();
+                    oRouter.navTo("RoutePageNotFound");
+                    return;
+                }
 
                 var oViewModel = new sap.ui.model.json.JSONModel();
-                oViewModel.setData(oProd);
+                oViewModel.setData(oProdFound);
                 this.getView().setModel(oViewModel,"product");
             }
         });

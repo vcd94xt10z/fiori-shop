@@ -7,7 +7,7 @@
 >   
     <FlexBox alignContent="Center" alignItems="Center">
         <items>
-            <Image src="/img/shop-logo.png" class="sapUiSmallMarginTop">
+            <Image src="/img/shop-logo.png" class="sapUiSmallMarginTop" press="onGoToHome">
                 <layoutData>
 				    <FlexItemData growFactor="1" />
 				</layoutData>

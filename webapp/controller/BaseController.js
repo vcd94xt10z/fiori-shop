@@ -16,6 +16,11 @@ sap.ui.define([
             onInit: function () {
             },
 
+            onGoToHome: function(){
+                var oRouter = this.getRouter();
+                oRouter.navTo("RouteHome");
+            },
+
             onGoToLoginForm: function(){
                 var oRouter = this.getRouter();
                 oRouter.navTo("RouteLoginForm");

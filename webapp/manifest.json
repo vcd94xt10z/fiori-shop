@@ -124,6 +124,13 @@
           "target": [
             "TargetRegisterForm"
           ]
+        },
+        {
+          "name": "RoutePageNotFound",
+          "pattern": "pageNotFound",
+          "target": [
+            "TargetPageNotFound"
+          ]
         }
       ],
       "targets": {
@@ -161,6 +168,13 @@
           "clearControlAggregation": false,
           "viewId": "registerFormView",
           "viewName": "RegisterForm"
+        },
+        "TargetPageNotFound": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "pageNotFoundView",
+          "viewName": "PageNotFound"
         }
       }
     },

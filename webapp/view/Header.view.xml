@@ -43,7 +43,7 @@
                 <ObjectStatus
                     id="cart-items"
 					class="sapUiSmallMargin"
-					text="{cart>/itemCount}"
+					text="{cartIcon>/itemCount}"
 					inverted="true"
 					state="None"/>
 

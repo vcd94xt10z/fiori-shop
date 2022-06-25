@@ -48,10 +48,15 @@ sap.ui.define([
                             MessageToast.show("Item inserido / atualizado");
     
                             om.loadOrder(function(oOrder){
-                                console.log(oOrder);
-                                var oCartModel = new sap.ui.model.json.JSONModel({
+                                var oCartIconModel = new sap.ui.model.json.JSONModel({
                                     "itemCount": oOrder.itemList.length
                                 });
+                                that.getOwnerComponent().setModel(oCartIconModel,"cartIcon");
+
+                                var oCartModel = new sap.ui.model.json.JSONModel({
+                                    "itemList": oOrder.itemList
+                                });
+                                
                                 that.getOwnerComponent().setModel(oCartModel,"cart");
 
                                 if(oOrder == null){

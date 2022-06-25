@@ -3,8 +3,39 @@
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
+    xmlns:tab="sap.ui.table"
 >
-    <Page title="Cart" showNavButton="true" navButtonPress="onPageBack">
-        <Text text="Estou no Carinho"/>
+    <Page title="{i18n>cartTitle}" showNavButton="true" navButtonPress="onPageBack">
+
+        <mvc:XMLView viewName="zapp.fiorishop.view.Header"/>
+        
+        <tab:Table id="table1"
+            rows="{cart>/itemList}"
+            visibleRowCount="10"
+            threshold="0"
+            selectionMode="MultiToggle">
+            <tab:toolbar>
+                <OverflowToolbar>
+                    <Title id="title" text="Itens"></Title>
+                </OverflowToolbar>
+            </tab:toolbar>
+            <tab:columns>
+                <tab:Column width="4rem" sortProperty="ProductID">
+                    <Label text="{i18n>ProductID}" />
+                    <tab:template>
+                        <Text text="{cart>ProductID}" wrapping="false" />
+                    </tab:template>
+                </tab:Column>
+                <tab:Column width="10rem" id="colName" autoResizable="true">
+                    <Label text="{i18n>ProductName}" />
+                    <tab:template>
+                        <Text text="{cart>ProductName}" wrapping="false" />
+                    </tab:template>
+                </tab:Column>
+            </tab:columns>
+        </tab:Table>
+
+        <mvc:XMLView viewName="zapp.fiorishop.view.Footer"/>
+
     </Page>
 </mvc:View>

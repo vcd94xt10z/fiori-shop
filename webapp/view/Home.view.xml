@@ -37,7 +37,7 @@
                                         />
                                     <Title text="{Name}" width="100%"/>
                                     <Text text="R$ {path: 'Price', formatter: '.formatter.price'}"/>
-                                    <Button text="Comprar"/>
+                                    <Button text="Comprar" press="onComprar" app:ProductID="{ProductID}"/>
                                 </VBox>
 
                             </l:BlockLayoutCell>

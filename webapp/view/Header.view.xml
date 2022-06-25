@@ -40,7 +40,12 @@
                     color=""
                     press="onGoToCart">
                 </core:Icon>
-                <Text text="(0)" class="sapUiSmallMargin"/>
+                <ObjectStatus
+                    id="cart-items"
+					class="sapUiSmallMargin"
+					text="{cart>/itemCount}"
+					inverted="true"
+					state="None"/>
 
                 <layoutData>
                     <FlexItemData growFactor="1" />

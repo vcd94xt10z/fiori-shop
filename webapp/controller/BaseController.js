@@ -19,6 +19,7 @@ sap.ui.define([
             },
 
             onComprar: function(oEvent){
+                var that = this;
                 var om         = new OrderManager(this);
                 var oSource    = oEvent.getSource();
                 var sProductID = oSource.data("ProductID");
@@ -48,6 +49,11 @@ sap.ui.define([
     
                             om.loadOrder(function(oOrder){
                                 console.log(oOrder);
+                                var oCartModel = new sap.ui.model.json.JSONModel({
+                                    "itemCount": oOrder.itemList.length
+                                });
+                                that.getOwnerComponent().setModel(oCartModel,"cart");
+
                                 if(oOrder == null){
                                     MessageToast.show("Erro em carregar carrinho");
                                 }

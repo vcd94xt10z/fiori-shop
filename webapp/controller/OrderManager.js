@@ -5,7 +5,7 @@ sap.ui.define([
 
 	return Controller.extend("zapp.fiorishop.controller.OrderManager", {
 		oModel: null,
-		bDebug: true,
+		bDebug: false,
 
 		constructor: function(oRef){
 			this.oModel = oRef.getOwnerComponent().getModel();

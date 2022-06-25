@@ -16,6 +16,21 @@ sap.ui.define([
             onInit: function () {
             },
 
+            onLogout: function(){
+                window.sessionStorage.setItem("customer",null);
+                window.sessionStorage.removeItem("customer");
+                window.location.reload(true);
+            },
+
+            getCustomerSession: function(){
+                var sCustomer = window.sessionStorage.getItem("customer");
+                if(sCustomer == null){
+                    return null;
+                }
+
+                return JSON.parse(sCustomer);
+            },
+
             onGoToHome: function(){
                 var oRouter = this.getRouter();
                 oRouter.navTo("RouteHome");

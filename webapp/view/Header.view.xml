@@ -1,5 +1,5 @@
 <mvc:View
-    controllerName="zapp.fiorishop.controller.Home"
+    controllerName="zapp.fiorishop.controller.Header"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
@@ -21,8 +21,11 @@
         
             
             <VBox class="sapUiMediumMargin">
-                <Text text="Olá Visitante"/>
-                <Link text="Efetuar Login" press="onGoToLoginForm"/>
+                <Text text="Olá Visitante" id="guest-name"/>
+                
+                <Link text="Efetuar Login" id="link-login" press="onGoToLoginForm"/>
+                <Link text="Sair" id="link-logout" press="onLogout" visible="false"/>
+                
                 <Link text="Cadastre-se" press="onGoToRegisterForm"/>
                 <layoutData>
                     <FlexItemData growFactor="1" />

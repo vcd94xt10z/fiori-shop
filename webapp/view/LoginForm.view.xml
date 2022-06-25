@@ -3,8 +3,19 @@
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
+    xmlns:core="sap.ui.core"
 >
-    <Page title="Login Form" showNavButton="true" navButtonPress="onPageBack">
-        <Text text="Estou no Formulário de Login"/>
+    <Page title="{i18n>loginFormTitle}" showNavButton="true" navButtonPress="onPageBack">
+        <VBox class="sapUiLargeMargin">
+            <core:Icon src="sap-icon://key" class="zicon-large" width="100%"/>
+
+            <Label text="{i18n>loginFormEmail}" labelFor="email"/>
+            <Input id="email" type="Email" required="true"/>
+
+            <Label text="{i18n>loginFormPassword}" labelFor="password"/>
+            <Input id="password" type="Password" required="true"/>
+
+            <Button text="{i18n>loginFormButtonLogin}" press="onLogin" width="100%" class="sapUiSmallMarginTop"/>
+        </VBox>
     </Page>
 </mvc:View>

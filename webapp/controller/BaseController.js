@@ -3,12 +3,13 @@ sap.ui.define([
     "sap/ui/core/UIComponent",
     "sap/ui/core/routing/History",
     "../model/formatter",
-    "sap/m/MessageToast"
+    "sap/m/MessageToast",
+    "./OrderManager"
 ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      */
-    function (Controller,UIComponent,History,formatter,MessageToast) {
+    function (Controller,UIComponent,History,formatter,MessageToast,OrderManager) {
         "use strict";
 
         return Controller.extend("zapp.fiorishop.controller.BaseController", {
@@ -18,155 +19,43 @@ sap.ui.define([
             },
 
             onComprar: function(oEvent){
-                var that = this;
-                var oSource = oEvent.getSource();
+                var om         = new OrderManager(this);
+                var oSource    = oEvent.getSource();
                 var sProductID = oSource.data("ProductID");
                 var oItem = {
                     "OrderID": 0,
+                    "ItemID": 0,
                     "ProductID": sProductID,
                     "ProductName": "Teste",
                     "ItemUnitary": 4439.90,
                     "Quantity": 1,
                     "ItemTotal": 4439.90
                 };
-                
-                this.loadOrder(function(oOrder){
-                    console.log(oOrder);
-                    //oOrder.itemList
 
-                    // verificar se não esta duplicado
+                // carregando produto
+                om.loadProduct(sProductID,function(oProd){
+                    if(oProd == null){
+                        MessageToast.show("Erro ao carregar produto "+sProductID);
+                        return;
+                    }
 
-                    // add item
-                    oItem.OrderID = oOrder.OrderID;
-                    that.insertItem(oItem,function(sStatusCode){
-                        if(sStatusCode == 201){
-                            MessageToast.show("Item inserido");
+                    oItem.ProductName = oProd.Name;
+                    oItem.ItemUnitary = oProd.Price;
+
+                    om.addItemToOrder(oItem,function(oResponse){
+                        if(oResponse.statusCode == 201 || oResponse.statusCode == 204){
+                            MessageToast.show("Item inserido / atualizado");
+    
+                            om.loadOrder(function(oOrder){
+                                console.log(oOrder);
+                                if(oOrder == null){
+                                    MessageToast.show("Erro em carregar carrinho");
+                                }
+                            });
                         }else{
-                            MessageToast.show("Erro ao inserir item");
+                            MessageToast.show("Erro ao inserir/atualizar item ["+oResponse.statusCode+"]: "+oResponse.message);
                         }
                     });
-                });
-            },
-
-            insertItem: function(oItem,callback){
-                var oModel = this.getOwnerComponent().getModel();
-                oModel.create("/itemSet",oItem,{
-                    success: function(oData,oResponse){
-                        callback(oResponse.statusCode);
-                    },
-                    error: function(oError){
-                        callback(oError.statusCode);
-                    }
-                });
-            },
-
-            /**
-             * Carrega uma ordem (cabeçalho, itens etc)
-             */
-            loadOrder: function(callback){
-                var that = this;
-
-                this.loadOrderHeader(function(oOrder){
-                    that.loadOrderItems(oOrder.OrderID,function(oData){
-                        oOrder.itemList = oData;
-                        callback(oOrder);
-                    });
-                });
-            },
-
-            loadOrderItems: function(sOrderID, callback){
-                var oModel = this.getOwnerComponent().getModel();
-                var aFilter = [];
-                var sPath = "/itemSet";
-
-                var oFilter = new sap.ui.model.Filter({
-                    path: 'OrderID',
-                    operator: 'EQ',
-                    value1: sOrderID
-                });
-                aFilter.push(oFilter);
-
-                oModel.read(sPath,{
-                    filters: aFilter,
-                    success: function(oData,oResponse){
-                        if(oResponse.statusCode == 200){
-                            callback(oData.results);
-                        }else{
-                            callback([]);
-                        }
-                    },
-                    error: function(oError){
-                        if(oError.statusCode == 404){
-                            callback([]);
-                        }else{
-                            callback([]);
-                        }
-                    }
-                });
-            },
-
-            loadOrderHeader: function(callback){
-                var oModel = this.getOwnerComponent().getModel();
-                var sOrderID = window.sessionStorage.getItem("OrderID");
-                var sPath = "";
-                var oOrder = null;
-                var that = this;
-
-                // template de ordem
-                oOrder = {
-                    "CustomerID": 0,
-                    "CreateDate": new Date(),
-                    "DeliveryZipcode": "86031000",
-                    "ItemTotal": 0,
-                    "FreightTotal": 0,
-                    "OrderTotal": 0,
-                    "Status": "New"
-                };
-                if(sOrderID == null){
-                    this._createNewOrder(oOrder,callback);
-                }else{
-                    sPath = "/orderSet("+sOrderID+")";
-                    oModel.read(sPath,{
-                        success: function(oData,oResponse){
-                            if(oResponse.statusCode == 404){
-                                that._createNewOrder(oOrder,callback);
-                            }else{
-                                callback(oData);
-                            }
-                        },
-                        error: function(oError){
-                            if(oError.statusCode == 404){
-                                that._createNewOrder(oOrder,callback);
-                            }else{
-                                callback(null);
-                            }
-                        }
-                    });
-                }
-            },
-
-            _createNewOrder: function(oOrder,callback){
-                var oModel = this.getOwnerComponent().getModel();
-                oModel.create("/orderSet",oOrder,{
-                    success: function(oData,oResponse){
-                        window.sessionStorage.setItem("OrderID",oData.OrderID);
-                        callback(oData);
-                    },
-                    error: function(oError){
-                        callback(null);
-                    }
-                });
-            },
-
-            _updateOrder: function(oOrder,callback){
-                var oModel = this.getOwnerComponent().getModel();
-                oModel.update("/orderSet",oOrder,{
-                    success: function(oData,oResponse){
-                        callback(oResponse.statusCode);
-                    },
-                    error: function(oError){
-                        callback(oError.statusCode);
-                    }
                 });
             },
 

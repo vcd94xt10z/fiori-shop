@@ -54,7 +54,7 @@ sap.ui.define([
                                 that.getOwnerComponent().setModel(oCartIconModel,"cartIcon");
 
                                 var oCartModel = new sap.ui.model.json.JSONModel({
-                                    "itemList": oOrder.itemList
+                                    "order": oOrder
                                 });
                                 
                                 that.getOwnerComponent().setModel(oCartModel,"cart");

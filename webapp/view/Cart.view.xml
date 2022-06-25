@@ -4,15 +4,17 @@
     displayBlock="true"
     xmlns="sap.m"
     xmlns:tab="sap.ui.table"
+    xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 >
     <Page title="{i18n>cartTitle}" showNavButton="true" navButtonPress="onPageBack">
 
         <mvc:XMLView viewName="zapp.fiorishop.view.Header"/>
         
         <tab:Table id="table1"
-            rows="{cart>/itemList}"
+            rows="{cart>/order/itemList}"
             visibleRowCount="10"
             threshold="0"
+            class="sapUiSmallMargin"
             selectionMode="MultiToggle">
             <tab:toolbar>
                 <OverflowToolbar>
@@ -20,16 +22,36 @@
                 </OverflowToolbar>
             </tab:toolbar>
             <tab:columns>
-                <tab:Column width="4rem" sortProperty="ProductID">
-                    <Label text="{i18n>ProductID}" />
+                <tab:Column width="8rem">
+                    <Label text="{i18n>Photo}" />
                     <tab:template>
-                        <Text text="{cart>ProductID}" wrapping="false" />
+                        <Image src="/img/product/{cart>ProductID}/1.jpg" 
+                            width="100%" 
+                            />
                     </tab:template>
                 </tab:Column>
-                <tab:Column width="10rem" id="colName" autoResizable="true">
-                    <Label text="{i18n>ProductName}" />
+                <tab:Column width="30rem">
+                    <Label text="{i18n>Product}" />
                     <tab:template>
-                        <Text text="{cart>ProductName}" wrapping="false" />
+                        <Text text="{cart>ProductID} - {cart>ProductName}" wrapping="false" />
+                    </tab:template>
+                </tab:Column>
+                <tab:Column width="6rem">
+                    <Label text="{i18n>ItemUnitary}" />
+                    <tab:template>
+                        <Text text="R$ {path: 'cart>ItemUnitary', formatter: '.formatter.price'}" wrapping="false" />
+                    </tab:template>
+                </tab:Column>
+                <tab:Column width="6rem">
+                    <Label text="{i18n>Quantity}" />
+                    <tab:template>
+                        <Text text="{cart>Quantity}" wrapping="false" />
+                    </tab:template>
+                </tab:Column>
+                <tab:Column width="8rem">
+                    <Label text="{i18n>ItemTotal}" />
+                    <tab:template>
+                        <Text text="R$ {path: 'cart>ItemTotal', formatter: '.formatter.price'}" wrapping="false" />
                     </tab:template>
                 </tab:Column>
             </tab:columns>

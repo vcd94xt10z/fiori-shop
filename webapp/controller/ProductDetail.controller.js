@@ -15,28 +15,38 @@ sap.ui.define([
             },
 
             _onRouteMatched: function(oEvent){
+                var that = this;
                 var oArgs = oEvent.getParameter("arguments");
                 var sRewrite = oArgs.rewrite;
                 var oModel = this.getOwnerComponent().getModel();
-                var oData = oModel.getData();
-
-                var oProdFound = null;
-                for(var i in oData.productList){
-                    var oProd = oData.productList[i];
-                    if(oProd.Rewrite == sRewrite){
-                        oProdFound = oProd;
-                        break;
+                var aFilter = [];
+                var oFilter = new sap.ui.model.Filter({
+                    path: 'Rewrite',
+                    operator: "EQ",
+                    value1: sRewrite
+                });
+                aFilter.push(oFilter);
+                
+                oModel.read("/productSet",{
+                    filters: aFilter,
+                    success: function(oData,oResponse){
+                        if(oResponse.statusCode == 200 && oData.results.length == 1){
+                            that.updateProductData(oData.results[0]);
+                        }else{
+                            var oRouter = this.getRouter();
+                            oRouter.navTo("RoutePageNotFound");
+                            return;
+                        }
+                    },
+                    error: function(oError){
+                        console.log(oError);
                     }
-                }
+                });
+            },
 
-                if(oProdFound == null){
-                    var oRouter = this.getRouter();
-                    oRouter.navTo("RoutePageNotFound");
-                    return;
-                }
-
+            updateProductData: function(oData){
                 var oViewModel = new sap.ui.model.json.JSONModel();
-                oViewModel.setData(oProdFound);
+                oViewModel.setData(oData);
                 this.getView().setModel(oViewModel,"product");
             }
         });

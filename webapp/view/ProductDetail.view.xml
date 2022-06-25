@@ -26,7 +26,7 @@
                 <l:BlockLayoutCell
                         id="Accent1"
                         title="">
-                    <Image id="productImage" src="/img/product/{product>/Productid}/1.jpg" width="100%" press="onOpenImage"/>
+                    <Image id="productImage" src="/img/product/{product>/ProductID}/1.jpg" width="100%" press="onOpenImage"/>
                 </l:BlockLayoutCell>
                 <l:BlockLayoutCell>
                     <l:VerticalLayout>
@@ -49,7 +49,7 @@
                                 press="onComprar"
                                 width="100%"
                                 class="sapUiSmallMargin"
-                                app:productid="{product>/Productid}"
+                                app:productid="{product>/ProductID}"
                                 ariaDescribedBy="acceptButtonDescription genericButtonDescription">
                             <layoutData>
                                 <FlexItemData growFactor="1" />

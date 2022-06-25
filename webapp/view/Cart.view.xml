@@ -3,61 +3,133 @@
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:form="sap.ui.layout.form"
+    xmlns:l="sap.ui.layout"
+    xmlns:card="sap.f.cards"
     xmlns:tab="sap.ui.table"
     xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 >
-    <Page title="{i18n>cartTitle}" showNavButton="true" navButtonPress="onPageBack">
-
+    <Page title="{i18n>cartTitle}" showNavButton="true" navButtonPress="onPageBack" class="sapUiContentPadding">
         <mvc:XMLView viewName="zapp.fiorishop.view.Header"/>
-        
-        <tab:Table id="table1"
-            rows="{cart>/order/itemList}"
-            visibleRowCount="10"
-            threshold="0"
-            class="sapUiSmallMargin"
-            selectionMode="MultiToggle">
-            <tab:toolbar>
-                <OverflowToolbar>
-                    <Title id="title" text="Itens"></Title>
-                </OverflowToolbar>
-            </tab:toolbar>
-            <tab:columns>
-                <tab:Column width="8rem">
-                    <Label text="{i18n>Photo}" />
-                    <tab:template>
-                        <Image src="/img/product/{cart>ProductID}/1.jpg" 
-                            width="100%" 
-                            />
-                    </tab:template>
-                </tab:Column>
-                <tab:Column width="30rem">
-                    <Label text="{i18n>Product}" />
-                    <tab:template>
-                        <Text text="{cart>ProductID} - {cart>ProductName}" wrapping="false" />
-                    </tab:template>
-                </tab:Column>
-                <tab:Column width="6rem">
-                    <Label text="{i18n>ItemUnitary}" />
-                    <tab:template>
-                        <Text text="R$ {path: 'cart>ItemUnitary', formatter: '.formatter.price'}" wrapping="false" />
-                    </tab:template>
-                </tab:Column>
-                <tab:Column width="6rem">
-                    <Label text="{i18n>Quantity}" />
-                    <tab:template>
-                        <Text text="{cart>Quantity}" wrapping="false" />
-                    </tab:template>
-                </tab:Column>
-                <tab:Column width="8rem">
-                    <Label text="{i18n>ItemTotal}" />
-                    <tab:template>
-                        <Text text="R$ {path: 'cart>ItemTotal', formatter: '.formatter.price'}" wrapping="false" />
-                    </tab:template>
-                </tab:Column>
-            </tab:columns>
-        </tab:Table>
+
+        <VBox>
+            <Table id="table1"
+                inset="false"
+                items="{
+                    path: 'cart>/order/itemList',
+                    sorter: {
+                        path: 'ItemID'
+                    }
+                }">
+                <columns>
+                    <Column width="12em">
+                        <Text text="Foto" />
+                    </Column>
+                    <Column>
+                        <Text text="Produto" />
+                    </Column>
+                    <Column hAlign="End">
+                        <Text text="Valor Unitário" />
+                    </Column>
+                    <Column hAlign="Center">
+                        <Text text="Quantidade" />
+                    </Column>
+                    <Column hAlign="End">
+                        <Text text="Valor Item" />
+                    </Column>
+                </columns>
+                <items>
+                    <ColumnListItem>
+                        <cells>
+                            <Image src="/img/product/{cart>ProductID}/1.jpg"  width="100%" />
+                            <Text text="{cart>ProductID} - {cart>ProductName}" />
+                            <Text text="R$ {path: 'cart>ItemUnitary', formatter: '.formatter.price'}" />
+                            <Text text="{cart>Quantity}" />
+                            <Text text="R$ {path: 'cart>ItemTotal', formatter: '.formatter.price'}" />
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </VBox>
+
+        <l:BlockLayout class="sapUiSmallMarginTop">
+            <l:BlockLayoutRow>
+            <l:content>
+                <l:BlockLayoutCell class="sapUiNoContentPadding sapUiTinyMargin">
+                    
+                    <f:Card width="100%">
+                        <f:header>
+                            <card:Header title="Frete"/>
+                        </f:header>
+                        <f:content>
+                            
+                            <Input text=""/>
+
+                        </f:content>
+                    </f:Card>
+
+                </l:BlockLayoutCell>
+                <l:BlockLayoutCell class="sapUiNoContentPadding sapUiTinyMargin">
+                    
+                    <f:Card width="100%">
+                        <f:header>
+                            <card:Header title="Resumo"/>
+                        </f:header>
+                        <f:content>
+
+                            <form:Form id="form1" editable="false">
+                                <form:layout>
+                                    <form:ResponsiveGridLayout
+                                        labelSpanXL="3"
+                                        labelSpanL="3"
+                                        labelSpanM="3"
+                                        labelSpanS="12"
+                                        adjustLabelSpan="false"
+                                        emptySpanXL="4"
+                                        emptySpanL="4"
+                                        emptySpanM="4"
+                                        emptySpanS="0"
+                                        columnsXL="1"
+                                        columnsL="1"
+                                        columnsM="1"
+                                        singleContainerFullSize="false" />
+                                </form:layout>
+                                <form:formContainers>
+                                    <form:FormContainer>
+                                        <form:formElements>
+                                            <form:FormElement label="{i18n>ItemTotal}">
+                                                <form:fields>
+                                                    <Text text="R$ {path: 'cart>/order/ItemTotal', formatter: '.formatter.price'}"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement label="{i18n>FreightTotal}">
+                                                <form:fields>
+                                                    <Text text="R$ {path: 'cart>/order/FreightTotal', formatter: '.formatter.price'}"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                            <form:FormElement label="{i18n>OrderTotal}">
+                                                <form:fields>
+                                                    <Text text="R$ {path: 'cart>/order/OrderTotal', formatter: '.formatter.price'}"/>
+                                                </form:fields>
+                                            </form:FormElement>
+                                        </form:formElements>
+                                    </form:FormContainer>
+                                </form:formContainers>
+                            </form:Form>
+
+                        </f:content>
+                    </f:Card>
+
+                </l:BlockLayoutCell>
+            </l:content>
+            </l:BlockLayoutRow>
+        </l:BlockLayout>
+
+        <VBox alignContent="End" alignItems="End" class="sapUiSmallMarginTop">
+            <Button text="Checkout"/>
+        </VBox>
 
         <mvc:XMLView viewName="zapp.fiorishop.view.Footer"/>
-
     </Page>
 </mvc:View>

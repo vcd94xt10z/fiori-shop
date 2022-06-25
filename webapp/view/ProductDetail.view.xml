@@ -49,7 +49,7 @@
                                 press="onComprar"
                                 width="100%"
                                 class="sapUiSmallMargin"
-                                app:productid="{product>/ProductID}"
+                                app:ProductID="{product>/ProductID}"
                                 ariaDescribedBy="acceptButtonDescription genericButtonDescription">
                             <layoutData>
                                 <FlexItemData growFactor="1" />

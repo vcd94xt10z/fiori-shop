@@ -3,8 +3,103 @@
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
 >
-    <Page title="Register Form" showNavButton="true" navButtonPress="onPageBack">
-        <Text text="Estou no Formulário de Registro"/>
+    <Page title="{i18n>registerFormTitle}" showNavButton="true" navButtonPress="onPageBack" class="sapUiContentPadding">
+        
+        <VBox>
+            <f:Form id="form1" editable="true">
+                <f:title>
+                    <core:Title text="{i18n>registerGeneralData}" />
+                </f:title>
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        labelSpanXL="3"
+                        labelSpanL="3"
+                        labelSpanM="3"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="4"
+                        emptySpanL="4"
+                        emptySpanM="4"
+                        emptySpanS="0"
+                        columnsXL="1"
+                        columnsL="1"
+                        columnsM="1"
+                        singleContainerFullSize="false" />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer>
+                        <f:formElements>
+                            <f:FormElement label="{i18n>CustomerName}">
+                                <f:fields>
+                                    <Input id="customer.name" value="{/Name}" required="true" autocomplete="false"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>CustomerEmail}">
+                                <f:fields>
+                                    <Input id="customer.email" value="{/Email}" type="Email" required="true" autocomplete="false"/>
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+
+            <f:Form id="form2" editable="true">
+                <f:title>
+                    <core:Title text="{i18n>registerPassword}" />
+                </f:title>
+                <f:layout>
+                    <f:ResponsiveGridLayout
+                        labelSpanXL="3"
+                        labelSpanL="3"
+                        labelSpanM="3"
+                        labelSpanS="12"
+                        adjustLabelSpan="false"
+                        emptySpanXL="4"
+                        emptySpanL="4"
+                        emptySpanM="4"
+                        emptySpanS="0"
+                        columnsXL="1"
+                        columnsL="1"
+                        columnsM="1"
+                        singleContainerFullSize="false" />
+                </f:layout>
+                <f:formContainers>
+                    <f:FormContainer>
+                        <f:formElements>
+                            <f:FormElement label="{i18n>CustomerPassword1}">
+                                <f:fields>
+                                    <Input id="customer.password1" value="{/Password}" type="Password" required="true" liveChange="onChangePassword" autocomplete="false"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="{i18n>CustomerPassword2}">
+                                <f:fields>
+                                    <Input id="customer.password2" value="{/Password2}" type="Password" required="true" liveChange="onChangePassword" autocomplete="false"/>
+                                </f:fields>
+                            </f:FormElement>
+                            <f:FormElement label="">
+                                <f:fields>
+                                    <ObjectStatus
+                                        class="sapUiSmallMarginBottom"
+                                        text=""
+                                        state="None" 
+                                        id="customer.password.status"/>
+                                </f:fields>
+                            </f:FormElement>
+                        </f:formElements>
+                    </f:FormContainer>
+                </f:formContainers>
+            </f:Form>
+
+        </VBox>
+        <footer>
+            <Toolbar>
+                <Button id="buttonSave" text="Salvar" press="onSave" type="Emphasized"/>
+            </Toolbar>
+        </footer>
+
     </Page>
 </mvc:View>

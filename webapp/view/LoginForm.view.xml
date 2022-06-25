@@ -9,13 +9,13 @@
         <VBox class="sapUiLargeMargin">
             <core:Icon src="sap-icon://key" class="zicon-large" width="100%"/>
 
-            <Label text="{i18n>loginFormEmail}" labelFor="email"/>
+            <Label text="{i18n>loginFormEmail}" labelFor="email" class="sapUiLargeMarginTop"/>
             <Input id="email" type="Email" required="true"/>
 
-            <Label text="{i18n>loginFormPassword}" labelFor="password"/>
+            <Label text="{i18n>loginFormPassword}" labelFor="password" class="sapUiMediumMarginTop"/>
             <Input id="password" type="Password" required="true"/>
 
-            <Button text="{i18n>loginFormButtonLogin}" press="onLogin" width="100%" class="sapUiSmallMarginTop"/>
+            <Button text="{i18n>loginFormButtonLogin}" press="onLogin" width="100%" class="sapUiMediumMarginTop"/>
         </VBox>
     </Page>
 </mvc:View>

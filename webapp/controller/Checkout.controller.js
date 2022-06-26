@@ -11,6 +11,16 @@ sap.ui.define([
 
         return BaseController.extend("zapp.fiorishop.controller.Checkout", {
             onInit: function () {
+                var oRouter = this.getRouter();
+                oRouter.attachRouteMatched(this.onDisplay,this);
+            },
+
+            onDisplay: function(){
+                var oCustomer = this.getCustomerSession();
+                if(oCustomer == null){
+                    window.sessionStorage.setItem("route_after_login","RouteCheckout");
+                    this.getRouter().navTo("RouteLoginForm");
+                }
             }
         });
     });

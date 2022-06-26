@@ -66,7 +66,14 @@ sap.ui.define([
                 window.sessionStorage.setItem("customer",JSON.stringify(oCustomer));
 
                 var oRouter = this.getRouter();
-                oRouter.navTo("RouteHome");
+
+                var sRoute = window.sessionStorage.getItem("route_after_login");
+                if(sRoute != null){
+                    window.sessionStorage.setItem("route_after_login",null)
+                    oRouter.navTo(sRoute);
+                }else{
+                    oRouter.navTo("RouteHome");
+                }
             }
         });
     });

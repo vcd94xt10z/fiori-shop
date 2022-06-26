@@ -66,13 +66,12 @@
 
                             <VBox class="sapUiSmallMargin">
                                 <HBox class="sapUiSmallMargin">
-                                    <Input type="Text" text="" placeholder="Informe seu CEP" id="zipcode"/>
-                                    <Button icon="sap-icon://search" press="onCalcFreight"/>
+                                    <SearchField placeholder="Informe seu CEP" id="zipcode" search="onCalcFreight"/>
                                 </HBox>
 
                                 <VBox class="sapUiSmallMargin">
                                     <Text text="CEP: {cart>/order/DeliveryZipcode}"/>
-                                    <Text text="Endereço: {cart>/order/DeliveryAddress}, {cart>/order/DeliveryNumber}"/>
+                                    <Text text="Endereço: {cart>/order/DeliveryAddress}"/>
                                     <Text text="Cidade/UF: {cart>/order/DeliveryCity}/{cart>/order/DeliveryRegion}"/>
                                     <Text text="Transportadora: {cart>/order/CarrierID} - {cart>/order/CarrierName}"/>
                                 </VBox>

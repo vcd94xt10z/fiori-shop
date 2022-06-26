@@ -48,17 +48,8 @@ sap.ui.define([
                             MessageToast.show("Item inserido / atualizado");
     
                             om.loadOrder(function(oOrder){
-                                var oCartIconModel = new sap.ui.model.json.JSONModel({
-                                    "itemCount": oOrder.itemList.length
-                                });
-                                that.getOwnerComponent().setModel(oCartIconModel,"cartIcon");
-
-                                var oCartModel = new sap.ui.model.json.JSONModel({
-                                    "order": oOrder
-                                });
+                                om.updateModels(oOrder);
                                 
-                                that.getOwnerComponent().setModel(oCartModel,"cart");
-
                                 if(oOrder == null){
                                     MessageToast.show("Erro em carregar carrinho");
                                 }

@@ -44,6 +44,16 @@ sap.ui.define([
 			sName = sName.toLowerCase().replace(/[^a-zA-Z0-9\-]/g,"-");
 
 			return sName;
+		},
+
+		randInt: function(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		},
+
+		randFloat: function(min, max, decimals) {
+			const str = (Math.random() * (max - min) + min).toFixed(decimals);
+		  
+			return parseFloat(str);
 		}
 	};
 

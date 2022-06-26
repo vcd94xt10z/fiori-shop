@@ -1,10 +1,10 @@
 <mvc:View
-    controllerName="zapp.fiorishop.controller.ProductDetail"
+    controllerName="zapp.fiorishop.controller.Checkout"
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
 >
-    <Page title="ProductDetail" showNavButton="true" navButtonPress="onPageBack">
-        <Text text="Estou no Carinho"/>
+    <Page title="Checkout" showNavButton="true" navButtonPress="onPageBack">
+        <Text text="Estou no Checkout"/>
     </Page>
 </mvc:View>

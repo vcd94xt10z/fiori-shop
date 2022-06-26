@@ -5,9 +5,11 @@ sap.ui.define([
 
 	return Controller.extend("zapp.fiorishop.controller.OrderManager", {
 		oModel: null,
+		oComponent: null,
 		bDebug: false,
 
 		constructor: function(oRef){
+			this.oComponent = oRef.getOwnerComponent();
 			this.oModel = oRef.getOwnerComponent().getModel();
 		},
 
@@ -29,6 +31,44 @@ sap.ui.define([
 			if(this.bDebug){
 				console.log(sMessage);
 			}
+		},
+
+		updateModels: function(oOrder){
+			var oCartIconModel = new sap.ui.model.json.JSONModel({
+				"itemCount": oOrder.itemList.length
+			});
+			this.oComponent.setModel(oCartIconModel,"cartIcon");
+
+			var oCartModel = new sap.ui.model.json.JSONModel({
+				"order": oOrder
+			});
+			
+			this.oComponent.setModel(oCartModel,"cart");
+		},
+
+		cleanFreight: function(oOrder){
+			oOrder.FreightTotal = 0;
+			oOrder.CarrierID = '';
+			oOrder.CarrierName = '';
+		},
+
+		updateFreight: function(oData,callback){
+			var that = this;
+
+			this.loadOrder(function(oOrder){
+				oOrder.FreightTotal    = oData.FreightTotal;
+				oOrder.DeliveryZipcode = oData.Zipcode;
+				oOrder.DeliveryAddress = oData.Address;
+				oOrder.DeliveryNumber  = oData.Number;
+				oOrder.DeliveryCity    = oData.City;
+				oOrder.DeliveryRegion  = oData.Region;
+				oOrder.CarrierID       = oData.CarrierID;
+				oOrder.CarrierName     = oData.CarrierName;
+
+				that.recalc(oOrder,function(oResponse){
+					callback(oResponse);
+				});
+			});
 		},
 
 		addItemToOrder: function(oItem,callback){
@@ -74,6 +114,8 @@ sap.ui.define([
 						break;
 					}
 				}
+
+				that.cleanFreight(oOrder);
 
 				// item encontrado? atualiza o item e a ordem
 				if(bFound){

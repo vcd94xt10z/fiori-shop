@@ -116,6 +116,13 @@
           ]
         },
         {
+          "name": "RouteCheckout",
+          "pattern": "checkout",
+          "target": [
+            "TargetCheckout"
+          ]
+        },
+        {
           "name": "RouteLoginForm",
           "pattern": "login",
           "target": [
@@ -179,6 +186,13 @@
           "clearControlAggregation": false,
           "viewId": "pageNotFoundView",
           "viewName": "PageNotFound"
+        },
+        "TargetCheckout": {
+          "viewType": "XML",
+          "transition": "slide",
+          "clearControlAggregation": false,
+          "viewId": "pageCheckout",
+          "viewName": "Checkout"
         }
       }
     },

@@ -7,11 +7,11 @@
     xmlns:core="sap.ui.core"
     xmlns:app="http://schemas.sap.com/sapui5/extension/sap.ui.core.CustomData/1"
 >
-    <Page title="{i18n>title}" showNavButton="true" navButtonPress="onPageBack">
+    <Page title="{i18n>title}" showNavButton="true" navButtonPress="onPageBack" class="sapUiContentPadding">
 
         <mvc:XMLView viewName="zapp.fiorishop.view.Header"/>
         
-        <l:VerticalLayout width="100%" class="sapUiContentPadding">
+        <l:VerticalLayout width="100%" class="sapUiTinyMargin">
             <l:content>
                 <Breadcrumbs currentLocationText="Cadeira" separatorStyle="BackSlash">
                     <Link press="onPress" text="Home"/>
@@ -23,12 +23,12 @@
 
         <l:BlockLayout id="BlockLayout" background="Dashboard">
             <l:BlockLayoutRow accentCells="Accent1">
-                <l:BlockLayoutCell
-                        id="Accent1"
-                        title="">
-                    <Image id="productImage" src="/img/product/{product>/ProductID}/1.jpg" width="100%" press="onOpenImage"/>
+                <l:BlockLayoutCell class="sapUiNoContentPadding">
+                    <VBox class="sapUiSmallMargin">
+                        <Image id="productImage" src="/img/product/{product>/ProductID}/1.jpg" width="100%" press="onOpenImage"/>
+                    </VBox>
                 </l:BlockLayoutCell>
-                <l:BlockLayoutCell>
+                <l:BlockLayoutCell class="sapUiNoContentPadding">
                     <l:VerticalLayout>
                         <ObjectHeader title="{product>/Name}" titleLevel="H2">
                             <attributes>
@@ -39,10 +39,7 @@
                             </statuses>
                         </ObjectHeader>
 
-                        <Title text="R$ {
-                                        path : 'product>/Price',
-                                        formatter : '.formatter.price'
-                                    }" titleStyle="H1" textAlign="Center" width="100%"/>
+                        <Title text="R$ {path : 'product>/Price', formatter : '.formatter.price'}" titleStyle="H1" textAlign="Center" width="100%"/>
 
                         <Button type="Accept"
                                 text="Comprar"
@@ -55,13 +52,14 @@
                                 <FlexItemData growFactor="1" />
                             </layoutData>
                         </Button>
-
                     </l:VerticalLayout>
                 </l:BlockLayoutCell>
             </l:BlockLayoutRow>
         </l:BlockLayout>
 
-        <Text text="{product>/Description}"/>
+        <VBox class="sapUiTinyMargin">
+            <Text text="{product>/Description}"/>
+        </VBox>
 
         <mvc:XMLView viewName="zapp.fiorishop.view.Footer"/>
     </Page>

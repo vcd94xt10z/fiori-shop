@@ -56,5 +56,11 @@
     </FlexBox>
 
     <Toolbar width="100%" height="1px" class="sapUiTinyMarginTop"/>
+        <Link text="Categorias" press="handleLinkPress" class="sapUiTinyMargin"/>
+        <Link text="|" enabled="false" class="sapUiTinyMargin"/>
+        <Link text="Promoções" press="handleLinkPress" class="sapUiTinyMargin"/>
+        <Link text="|" enabled="false" class="sapUiTinyMargin"/>
+        <Link text="Novidades" press="handleLinkPress" class="sapUiTinyMargin"/>
+    <Toolbar width="100%" height="1px" class="sapUiTinyMarginBottom"/>
 
 </mvc:View>

@@ -10,12 +10,12 @@
     <Shell id="shell">
         <App id="app">
             <pages>
-                <Page id="page" title="{i18n>title}" enableScrolling="true">
+                <Page id="page" title="{i18n>title}" enableScrolling="true" class="sapUiContentPadding">
                     
                     <mvc:XMLView viewName="zapp.fiorishop.view.Header"/>
 
                     <!-- CAROUSEL -->
-                    <Carousel height="320px" showPageIndicator="false">
+                    <Carousel height="260px" showPageIndicator="false">
                         <Image src="/img/banner/b1.jpg"/>
                         <Image src="/img/banner/b2.jpg"/>
                         <Image src="/img/banner/b3.jpg"/>
@@ -29,7 +29,7 @@
 						<l:content>
 							<l:BlockLayoutCell class="sapUiNoContentPadding">
                                 
-                                <VBox class="sapUiTinyMargin">
+                                <VBox class="sapUiSmallMargin">
                                     <Image src="/img/product/{ProductID}/1.jpg" 
                                         width="100%" 
                                         press="onGoToProduct" 

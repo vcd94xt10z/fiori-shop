@@ -9,9 +9,9 @@ IDE: VSCode
 [Detalhes Técnicos do App](app.md)
 
 ### Demo online
-[MockServer](https://fiori-shop.pages.dev/test/mockServer.html)  
-[Testes Unitários](https://fiori-shop.pages.dev/test/unit/unitTests.qunit.html)  
-[Teste Integrados](https://fiori-shop.pages.dev/test/integration/opaTests.qunit.html)  
+[MockServer](https://fiori-shop.pequenalondres.com/test/mockServer.html)  
+[Testes Unitários](https://fiori-shop.pequenalondres.com/test/unit/unitTests.qunit.html)  
+[Teste Integrados](https://fiori-shop.pequenalondres.com/test/integration/opaTests.qunit.html)  
 
 ### Funcionalidades
 - Projeto Básico :heavy_check_mark:
